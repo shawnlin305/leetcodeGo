@@ -6,33 +6,30 @@ import (
 	"leetcodeGo/addDigits"
 )
 
-func Test1(t *testing.T) {
-    res, err  := addDigits.AddDigits(1)
-
-    if (err == nil) {
-        fmt.Println("Answer :", res, "\n")
-    } else {
-		t.Fail()
-    }   
+var TestTable = []struct {
+	n int
+	expected int
+}{
+	{0, 0},
+	{1, 1},
+	{12, 3},
+	{135, 9},
+	{246, 12},
+	{987, 24},
+	{962, 17},
 }
 
-func Test1357(t *testing.T) {
-    res, err  := addDigits.AddDigits(1357)
+func TestBomb(t *testing.T) {
 
-    if (err == nil) {
-        fmt.Println("Answer :", res, "\n")
-    } else {
-		t.Fail()
-    }   
-}
 
-func Test2468(t *testing.T) {
-    res, err  := addDigits.AddDigits(2468)
+	for _, num := range TestTable {
+		res, err  := addDigits.AddDigits(num.n)
 
-    if (err == nil) {
-        fmt.Println("Answer :", res, "\n")
-    } else {
-		t.Fail()
-    }   
+		if (err == nil && res == num.expected) {
+			fmt.Println("Answer :", res, "\n")
+		} else {
+			t.Error("Wrong Answer pair : {", num.n, " : ", num.expected, "}")
+		}
+	}
 }
 
