@@ -2,6 +2,7 @@ package addDigits
 
 import "fmt"
 
+// Add digital separatelly. For example : AddDigits(123) will return (1 + 2 + 3)
 func AddDigits(num int) (ret int, err error) {
 	sum := 0
 	fmt.Println("Input : ", num)
